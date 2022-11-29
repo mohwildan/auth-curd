@@ -19,13 +19,14 @@ model User {
     imageProfile String?
     createAt DateTime @default(now())
     updateAt DateTime @updatedAt()
-    Posts Post[]
+    posts Post[]
  }
 
  model Post {
      id String @id @default(uuid())
      email String
      userName String
+     name String
      imageProfile String?
      text String
      imagePost String?
@@ -33,4 +34,31 @@ model User {
      user User @relation(fields: [userId], references: [id])
      createAt DateTime @default(now())
      updateAt DateTime @updatedAt()
+     comments Comment[]
+     likes Like[]
+}
+
+model Comment {
+     id String @id @default(uuid())
+     email String
+     userName String
+     name String
+     imageProfile String?
+     text String
+     createAt DateTime @default(now())
+     updateAt DateTime @updatedAt()
+     postId String
+     post Post @relation(fields: [postId], references: [id])
+ }
+
+model Like {
+     id String @id @default(uuid())
+     email String
+     userName String
+     name String
+     imageProfile String?
+     createAt DateTime @default(now())
+     updateAt DateTime @updatedAt()
+     postId String
+     post Post @relation(fields: [postId], references: [id])
 }
