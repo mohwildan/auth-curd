@@ -70,7 +70,7 @@ export class AuthService {
 
     res.cookie('jwt', token, {
       httpOnly: true,
-      sameSite: 'none',
+      sameSite: 'strict',
     });
     return res.send({ message: 'Logged in succesfull' });
   }
