@@ -68,7 +68,9 @@ export class AuthService {
       throw new ForbiddenException();
     }
 
-    res.cookie('token', token);
+    res.cookie('token', token, {
+      httpOnly: true,
+    });
     return res.send({ message: 'Logged in succesfull' });
   }
 
