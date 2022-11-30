@@ -23,11 +23,10 @@ async function bootstrap() {
   });
   app.use(
     session({
-      secret: 'reply-analyzer',
+      secret: 'mooncore',
       resave: false,
       saveUninitialized: false,
       cookie: {
-        secure: true,
         sameSite: 'none',
       },
     }),
