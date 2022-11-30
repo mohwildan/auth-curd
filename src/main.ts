@@ -12,14 +12,6 @@ async function bootstrap() {
     credentials: true,
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
-    allowedHeaders: [
-      'Origin',
-      'X-Requested-With',
-      'Content-Type',
-      'Accept',
-      'X-Access-Token',
-      'Authorization',
-    ],
   });
   await app.listen(process.env.PORT || 3001);
 }
